@@ -31,7 +31,7 @@ export const heroData = {
 export const aboutData = {
   title: "About Me",
   description: [
-    "I'm a final-year Computer Science student at Gujarat Technological University with a passion for building scalable, high-performance systems. My expertise spans full-stack development, cloud-native architecture, and DevOps practices.",
+    "I'm a final-year Computer Science student at IIIT Vadodara with a passion for building scalable, high-performance systems. My expertise spans full-stack development, cloud-native architecture, and DevOps practices.",
     "I specialize in modern web technologies like React, Next.js, and Node.js, combined with cloud platforms like AWS. I enjoy solving complex problems and building solutions that make a real impact.",
     "Currently seeking opportunities as a Software Engineer where I can contribute to innovative projects and continue growing my technical expertise.",
   ],
