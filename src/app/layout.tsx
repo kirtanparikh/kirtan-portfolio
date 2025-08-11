@@ -45,6 +45,7 @@ export default function RootLayout({
       className="dark"
       style={{ colorScheme: "dark" }}
       data-theme="dark"
+      suppressHydrationWarning={true}
     >
       <head>
         <meta name="color-scheme" content="dark" />

@@ -28,6 +28,13 @@ export default function DarkReaderBlocker() {
           }
         });
 
+        // Ensure consistent class name to prevent hydration mismatch
+        const currentClass = document.documentElement.className;
+        if (currentClass !== "dark") {
+          // Reset to original server-rendered class
+          document.documentElement.className = "dark";
+        }
+
         // Force color scheme
         document.documentElement.style.colorScheme = "dark";
         document.body.style.colorScheme = "dark";
@@ -42,8 +49,25 @@ export default function DarkReaderBlocker() {
     blockDarkReader();
 
     // Use MutationObserver to catch Dark Reader changes
-    const observer = new MutationObserver(() => {
-      blockDarkReader();
+    const observer = new MutationObserver((mutations) => {
+      let shouldBlock = false;
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.target === document.documentElement &&
+          mutation.attributeName === "class"
+        ) {
+          // Check if class was modified to something other than "dark"
+          const currentClass = document.documentElement.className;
+          if (currentClass !== "dark") {
+            shouldBlock = true;
+          }
+        }
+      });
+
+      if (shouldBlock) {
+        blockDarkReader();
+      }
     });
 
     if (typeof document !== "undefined") {
