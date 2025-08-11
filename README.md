@@ -67,7 +67,7 @@ An innovative platform for anonymous feedback enhanced with AI-generated constru
 A comprehensive fitness and nutrition tracking application with social features.
 
 - **Tech Stack**: Next.js, Node.js, PostgreSQL, AWS, Socket.IO
-- **Live Demo**: [tracksnap.kirtanparikh.tech](https://tracksnap.kirtanparikh.tech/)
+- **Live Demo**: [tracksnap.kirtanparikh.tech](https://tracksnap.onrender.com/)
 - **Repository**: [GitHub](https://github.com/Kirtan134/TrackSnap)
 
 ### Homeland Cakes
@@ -179,8 +179,5 @@ src/
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## Deployment
 
-This portfolio is optimized for deployment on Vercel. Simply connect your GitHub repository to Vercel for automatic deployments on every push to the main branch.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Kirtan134/kirtan-portfolio)
