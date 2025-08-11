@@ -306,6 +306,34 @@ html {
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
+/* Enhanced glass utilities for better readability */
+.glass-content {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0 0 16px 16px;
+}
+
+.glass-overlay-dark {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+}
+
+.glass-accent-ring {
+  position: relative;
+}
+.glass-accent-ring:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: inherit;
+  mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+  mask-composite: exclude;
+  pointer-events: none;
+}
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));

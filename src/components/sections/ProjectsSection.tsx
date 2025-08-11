@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { projectsData } from "@/lib/data";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, X } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -43,52 +43,50 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       viewport={{ once: true }}
       whileHover={{ scale: 1.02, y: -5 }}
       onClick={() => onCardClick(project)}
-      className="glass-card overflow-hidden cursor-pointer group"
+      className="rounded-2xl cursor-pointer group glass-accent-ring overflow-hidden flex flex-col bg-white/5 backdrop-blur-xl border border-white/10"
     >
-      {/* Project Image */}
-      <div className="relative h-48 glass overflow-hidden">
+      {/* Image section with fixed aspect ratio */}
+      <div className="relative w-full aspect-[16/9]">
         <Image
           src={project.imageUrl}
           alt={project.title}
           fill
           sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover brightness-[0.7] contrast-110 saturate-125 transition-transform duration-700 group-hover:scale-105"
           priority={index < 2}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <div className="text-white font-semibold drop-shadow">
-            Click to view details
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/80" />
+        <div className="absolute top-2 right-2 text-[10px] px-2 py-1 rounded-md bg-black/40 text-white/80 border border-white/10 backdrop-blur-sm">
+          {project.tags[0]}
         </div>
       </div>
-
-      {/* Project Content */}
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-          {project.title}
-        </h3>
-        <p className="text-gray-300 mb-4 line-clamp-2">{project.description}</p>
-
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.slice(0, 4).map((tag, tagIndex) => (
+      {/* Content area */}
+      <div className="glass-content p-5 backdrop-blur supports-[backdrop-filter]:bg-black/50 flex flex-col gap-3 flex-1">
+        <div>
+          <h3 className="text-lg font-semibold tracking-tight text-white mb-1 group-hover:text-blue-300 transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-gray-300/90 text-sm line-clamp-2">
+            {project.description}
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {project.tags.slice(0, 3).map((tag, tagIndex) => (
             <span
               key={tagIndex}
-              className="px-2 py-1 glass text-blue-300 text-xs rounded-full border border-blue-500/30"
+              className="px-2 py-1 rounded-full text-[10px] font-medium bg-white/10 text-blue-200 border border-white/15 backdrop-blur-sm"
             >
               {tag}
             </span>
           ))}
-          {project.tags.length > 4 && (
-            <span className="px-2 py-1 glass text-gray-300 text-xs rounded-full">
-              +{project.tags.length - 4} more
+          {project.tags.length > 3 && (
+            <span className="px-2 py-1 rounded-full text-[10px] font-medium bg-white/10 text-gray-200 border border-white/10">
+              +{project.tags.length - 3}
             </span>
           )}
         </div>
-
-        {/* Project Links */}
-        <div className="flex justify-between items-center">
-          <span className="text-gray-400 text-sm">Click to view details</span>
+        <div className="flex items-center justify-between pt-1">
+          <span className="text-gray-400/80 text-[11px]">Click to view</span>
           <motion.a
             href={project.githubUrl}
             target="_blank"
@@ -96,9 +94,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             onClick={(e) => e.stopPropagation()}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center px-3 py-1.5 btn-macos-secondary text-white text-sm"
+            className="flex items-center gap-1 px-3 py-1.5 rounded-md bg-white/10 hover:bg-white/15 text-white text-xs border border-white/10 transition-colors"
           >
-            <Github size={14} className="mr-1" />
+            <Github size={14} />
             Code
           </motion.a>
         </div>
@@ -119,53 +117,56 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
     <Dialog open={!!project} onOpenChange={() => onClose()}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto glass-dark border-white/10">
         <DialogHeader>
-          <div className="flex items-center justify-between">
-            <DialogTitle className="text-2xl font-bold text-white">
-              {project.title}
-            </DialogTitle>
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-white transition-colors"
-            >
-              <X size={24} />
-            </button>
-          </div>
-          <DialogDescription className="text-gray-300 mt-4">
+          <DialogTitle className="text-2xl font-bold text-white">
+            {project.title}
+          </DialogTitle>
+          <DialogDescription className="text-gray-300 mt-2">
             {project.description}
           </DialogDescription>
         </DialogHeader>
 
-        <div className="mt-6 space-y-6">
-          {/* Project Image */}
-          <div className="relative h-64 glass rounded-lg overflow-hidden">
+        <div className="mt-6 space-y-8">
+          {/* Project Image with overlay */}
+          <div className="relative h-0 pb-[56.25%] rounded-2xl overflow-hidden glass-accent-ring">
             <Image
               src={project.imageUrl}
               alt={project.title}
               fill
               sizes="100vw"
-              className="object-cover"
+              className="object-cover brightness-[0.65]"
               priority
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-3">
+              <h2 className="text-2xl font-bold text-white drop-shadow-lg">
+                {project.title}
+              </h2>
+              <p className="text-gray-300 text-sm max-w-3xl">
+                {project.description}
+              </p>
+            </div>
           </div>
 
           {/* Project Details */}
-          <div>
+          <div className="glass-content p-6 rounded-xl">
             <h3 className="text-lg font-semibold text-white mb-3">
               Project Details
             </h3>
-            <p className="text-gray-300 leading-relaxed">{project.details}</p>
+            <p className="text-gray-300/90 leading-relaxed text-sm">
+              {project.details}
+            </p>
           </div>
 
           {/* Tech Stack */}
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-3">
+          <div className="glass-content p-6 rounded-xl">
+            <h3 className="text-lg font-semibold text-white mb-4">
               Technologies Used
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2">
               {project.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1.5 glass text-blue-300 text-sm rounded-full border border-blue-500/30"
+                  className="px-2 py-1 rounded-md text-xs font-medium bg-white/10 text-blue-200 border border-white/10 backdrop-blur-sm"
                 >
                   {tag}
                 </span>
@@ -174,11 +175,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-4 pt-4">
+          <div className="flex flex-wrap gap-4 pt-2">
             <Button
               asChild
               size="lg"
-              className="border-gray-600 text-gray-300 hover:bg-gray-800"
+              className="bg-white/10 hover:bg-white/15 text-white border border-white/15 backdrop-blur-sm"
             >
               <a
                 href={project.liveUrl}
@@ -187,10 +188,15 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 className="flex items-center"
               >
                 <ExternalLink size={18} className="mr-2" />
-                View Live Demo
+                Live Demo
               </a>
             </Button>
-            <Button asChild variant="secondary" size="lg">
+            <Button
+              asChild
+              variant="secondary"
+              size="lg"
+              className="bg-blue-500/20 hover:bg-blue-500/30 text-blue-200 border border-blue-400/30"
+            >
               <a
                 href={project.githubUrl}
                 target="_blank"
@@ -198,7 +204,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                 className="flex items-center"
               >
                 <Github size={18} className="mr-2" />
-                View Source Code
+                Source Code
               </a>
             </Button>
           </div>
