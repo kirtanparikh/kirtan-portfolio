@@ -69,7 +69,6 @@ This message was sent from the contact form on your portfolio website.
     return NextResponse.json({
       success: true,
       message: "Email sent successfully",
-      id: data.id,
     });
   } catch (error) {
     console.error("Error sending email:", error);
