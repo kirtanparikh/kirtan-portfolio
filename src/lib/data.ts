@@ -84,7 +84,7 @@ export const experienceData = [
       "Implemented secure user authentication using AWS Cognito and JWT.",
       "Implemented real-time messaging with Socket.io and secure file sharing via S3 Presigned URLs.",
     ],
-    certificateUrl: "https://heliumconsulting.com/certificates/kirtan-parikh", // Example URL
+    certificateUrl: "/assets/internship.pdf",
   },
 ];
 
@@ -217,7 +217,7 @@ export const coursesData = [
       "Full Stack Development",
       "AI/ML",
     ],
-    certificateUrl: "https://www.linkedin.com/in/kirtan-parikh/overlay/1734780533001/single-media-viewer/?profileId=ACoAACTo7KABnEH81MNiSNUQrohGWVvmEidEW9Y",
+    certificateUrl: "/assets/sih.png",
     icon: "Award",
   },
   {

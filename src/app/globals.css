@@ -181,6 +181,38 @@
       min-width: 44px;
     }
 
+    /* Prevent text overflow issues */
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  /* Additional responsive improvements */
+  @media (max-width: 640px) {
+    /* Make cards more touch-friendly on small screens */
+    .glass-card {
+      min-height: 120px;
+    }
+
+    /* Improve text readability on mobile */
+    p,
+    span {
+      word-break: break-word;
+      hyphens: auto;
+    }
+
     /* Ensure proper alignment without breaking layouts */
     .max-w-7xl,
     .max-w-6xl,
@@ -196,32 +228,32 @@
       padding-right: 1rem;
     }
   }
+}
 
-  /* Block Dark Reader specifically */
-  [data-darkreader-inline-bgcolor] {
-    background-color: unset !important;
-  }
+/* Block Dark Reader specifically */
+[data-darkreader-inline-bgcolor] {
+  background-color: unset !important;
+}
 
-  [data-darkreader-inline-color] {
-    color: unset !important;
-  }
+[data-darkreader-inline-color] {
+  color: unset !important;
+}
 
-  [data-darkreader-inline-stroke] {
-    stroke: unset !important;
-  }
+[data-darkreader-inline-stroke] {
+  stroke: unset !important;
+}
 
-  [data-darkreader-inline-fill] {
-    fill: unset !important;
-  }
+[data-darkreader-inline-fill] {
+  fill: unset !important;
+}
 
-  /* Force override any Dark Reader modifications */
-  html[data-darkreader-mode="dynamic"] {
-    background: #000000 !important;
-  }
+/* Force override any Dark Reader modifications */
+html[data-darkreader-mode="dynamic"] {
+  background: #000000 !important;
+}
 
-  html[data-darkreader-scheme="dark"] {
-    background: #000000 !important;
-  }
+html[data-darkreader-scheme="dark"] {
+  background: #000000 !important;
 }
 
 @layer base {
@@ -245,6 +277,36 @@
 ::-webkit-scrollbar-thumb {
   background: rgb(75 85 99);
   border-radius: 4px;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Additional mobile responsive improvements */
+@media (max-width: 640px) {
+  .glass-card {
+    min-height: 120px;
+  }
+
+  p,
+  span {
+    word-break: break-word;
+    hyphens: auto;
+  }
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -634,5 +696,47 @@ html {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Contact section mobile improvements */
+@media (max-width: 640px) {
+  /* Ensure contact links are touch-friendly */
+  a[href^="mailto:"],
+  a[href^="tel:"] {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Improve form elements on mobile */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  /* Better touch targets for social links */
+  .glass-card {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Footer mobile improvements */
+  footer a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Ensure footer links are easily tappable */
+  footer a:not([class*="bg-"]) {
+    padding: 8px 4px;
   }
 }

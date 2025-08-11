@@ -87,30 +87,30 @@ export default function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Get In Touch
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
             I&apos;m always interested in new opportunities and collaborations.
             Let&apos;s build something amazing together!
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">
                 Let&apos;s Connect
               </h3>
-              <p className="text-gray-300 mb-8">
+              <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base">
                 Whether you have a project in mind, want to discuss
                 opportunities, or just want to say hello, I&apos;d love to hear
                 from you.
@@ -118,19 +118,19 @@ export default function ContactSection() {
             </div>
 
             {/* Contact Details */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <motion.div
                 whileHover={{ x: 5 }}
-                className="flex items-center space-x-4 p-6 glass-card"
+                className="flex items-center space-x-3 sm:space-x-4 p-4 sm:p-6 glass-card"
               >
-                <div className="p-3 glass-card">
-                  <Mail size={24} className="text-blue-400" />
+                <div className="p-2 sm:p-3 glass-card flex-shrink-0">
+                  <Mail size={20} className="sm:w-6 sm:h-6 text-blue-400" />
                 </div>
-                <div>
-                  <p className="text-gray-400 text-sm">Email</p>
+                <div className="min-w-0 flex-1">
+                  <p className="text-gray-400 text-xs sm:text-sm">Email</p>
                   <a
                     href={`mailto:${contactData.email}`}
-                    className="text-white hover:text-blue-400 transition-colors"
+                    className="text-white hover:text-blue-400 transition-colors text-sm sm:text-base break-all"
                   >
                     {contactData.email}
                   </a>
@@ -139,16 +139,16 @@ export default function ContactSection() {
 
               <motion.div
                 whileHover={{ x: 5 }}
-                className="flex items-center space-x-4 p-6 glass-card"
+                className="flex items-center space-x-3 sm:space-x-4 p-4 sm:p-6 glass-card"
               >
-                <div className="p-3 glass-card">
-                  <Phone size={24} className="text-blue-400" />
+                <div className="p-2 sm:p-3 glass-card flex-shrink-0">
+                  <Phone size={20} className="sm:w-6 sm:h-6 text-blue-400" />
                 </div>
-                <div>
-                  <p className="text-gray-400 text-sm">Phone</p>
+                <div className="min-w-0 flex-1">
+                  <p className="text-gray-400 text-xs sm:text-sm">Phone</p>
                   <a
                     href={`tel:${contactData.phone}`}
-                    className="text-white hover:text-blue-400 transition-colors"
+                    className="text-white hover:text-blue-400 transition-colors text-sm sm:text-base"
                   >
                     {contactData.phone}
                   </a>
@@ -157,22 +157,26 @@ export default function ContactSection() {
 
               <motion.div
                 whileHover={{ x: 5 }}
-                className="flex items-center space-x-4 p-6 glass-card"
+                className="flex items-center space-x-3 sm:space-x-4 p-4 sm:p-6 glass-card"
               >
-                <div className="p-3 glass-card">
-                  <MapPin size={24} className="text-blue-400" />
+                <div className="p-2 sm:p-3 glass-card flex-shrink-0">
+                  <MapPin size={20} className="sm:w-6 sm:h-6 text-blue-400" />
                 </div>
-                <div>
-                  <p className="text-gray-400 text-sm">Location</p>
-                  <p className="text-white">{contactData.location}</p>
+                <div className="min-w-0 flex-1">
+                  <p className="text-gray-400 text-xs sm:text-sm">Location</p>
+                  <p className="text-white text-sm sm:text-base">
+                    {contactData.location}
+                  </p>
                 </div>
               </motion.div>
             </div>
 
             {/* Social Links */}
             <div>
-              <p className="text-gray-400 mb-4">Follow me on social media</p>
-              <div className="flex space-x-4">
+              <p className="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">
+                Follow me on social media
+              </p>
+              <div className="flex space-x-3 sm:space-x-4">
                 {socialLinks.map((link, index) => {
                   const IconComponent =
                     iconMap[link.icon as keyof typeof iconMap];
@@ -188,11 +192,12 @@ export default function ContactSection() {
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-3 glass-card transition-all duration-300"
+                      className="p-2 sm:p-3 glass-card transition-all duration-300 flex-shrink-0"
+                      aria-label={`Visit my ${link.name} profile`}
                     >
                       <IconComponent
-                        size={20}
-                        className="text-gray-300 hover:text-blue-400 transition-colors"
+                        size={18}
+                        className="sm:w-5 sm:h-5 text-gray-300 hover:text-blue-400 transition-colors"
                       />
                     </motion.a>
                   );
@@ -279,13 +284,13 @@ export default function ContactSection() {
                 >
                   {isSubmitting ? (
                     <div className="flex items-center">
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Sending...
+                      <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-white mr-2"></div>
+                      <span className="text-sm sm:text-base">Sending...</span>
                     </div>
                   ) : (
                     <>
-                      <Send className="mr-2" size={20} />
-                      Send Message
+                      <Send className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+                      <span className="text-sm sm:text-base">Send Message</span>
                     </>
                   )}
                 </Button>
