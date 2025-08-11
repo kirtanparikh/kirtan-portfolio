@@ -107,7 +107,7 @@ export const projectsData = [
       "A real-time, privacy-first location tracking system supporting thousands of concurrent users.",
     tags: ["Node.js", "Express.js", "Socket.io", "Leaflet.js", "EJS"],
     imageUrl: "/assets/tracksnap.jpg",
-    liveUrl: "https://tracksnap.kirtanparikh.tech/",
+    liveUrl: "https://tracksnap.onrender.com/",
     githubUrl: "https://github.com/Kirtan134/TrackSnap",
     details:
       "Features a stateless architecture ensuring no location data is stored. Optimized WebSocket connections provide sub-100ms latency for a seamless cross-device experience.",
