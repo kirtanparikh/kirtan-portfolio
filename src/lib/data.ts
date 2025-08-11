@@ -235,7 +235,7 @@ export const coursesData = [
       "Computer Vision",
       "NLP",
     ],
-    certificateUrl: "https://learn.nvidia.com/certificates?id=",
+    certificateUrl: "https://learn.nvidia.com/certificates?id=FHaQdFB4SK-uEgg4faJwhw",
     icon: "Brain",
   },
 ];
