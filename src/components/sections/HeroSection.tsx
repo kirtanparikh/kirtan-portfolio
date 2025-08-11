@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { heroData, socialLinks } from "@/lib/data";
 import { motion } from "framer-motion";
-import { Code, Download, Github, Linkedin, Send, Twitter } from "lucide-react";
+import { Code, Eye, Github, Linkedin, Send, Twitter } from "lucide-react";
 
 const iconMap = {
   Github,
@@ -20,11 +20,8 @@ export default function HeroSection() {
     }
   };
 
-  const downloadCV = () => {
-    const link = document.createElement("a");
-    link.href = heroData.cvUrl;
-    link.download = "Kirtan_Parikh_CV.pdf";
-    link.click();
+  const viewCV = () => {
+    window.open(heroData.cvUrl, "_blank");
   };
 
   return (
@@ -193,7 +190,7 @@ export default function HeroSection() {
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             <Button
-              onClick={downloadCV}
+              onClick={viewCV}
               size="lg"
               variant="default"
               className="px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold relative overflow-hidden group w-full sm:w-auto"
@@ -204,8 +201,8 @@ export default function HeroSection() {
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 0.6 }}
               />
-              <Download className="mr-2 sm:mr-3" size={18} />
-              <span className="relative z-10">Download CV</span>
+              <Eye className="mr-2 sm:mr-3" size={18} />
+              <span className="relative z-10">View CV</span>
             </Button>
           </motion.div>
 
