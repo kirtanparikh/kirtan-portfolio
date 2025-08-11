@@ -11,6 +11,7 @@ import {
 import { projectsData } from "@/lib/data";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, X } from "lucide-react";
+import Image from "next/image";
 import React, { useState } from "react";
 
 interface Project {
@@ -46,12 +47,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       {/* Project Image */}
       <div className="relative h-48 glass overflow-hidden">
-        {/* Placeholder for project image */}
-        <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-teal-500/20 flex items-center justify-center">
-          <div className="text-4xl">🚀</div>
-        </div>
-        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <div className="text-white font-semibold">Click to view details</div>
+        <Image
+          src={project.imageUrl}
+          alt={project.title}
+          fill
+          sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          priority={index < 2}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <div className="text-white font-semibold drop-shadow">
+            Click to view details
+          </div>
         </div>
       </div>
 
@@ -131,9 +138,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
         <div className="mt-6 space-y-6">
           {/* Project Image */}
           <div className="relative h-64 glass rounded-lg overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-teal-500/20 flex items-center justify-center">
-              <div className="text-6xl">🚀</div>
-            </div>
+            <Image
+              src={project.imageUrl}
+              alt={project.title}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
           </div>
 
           {/* Project Details */}
