@@ -67,7 +67,7 @@ export default function AboutSection() {
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                 className="absolute -bottom-4 -left-4 w-12 h-12 glass-card flex items-center justify-center"
               >
-                <div className="text-xl">🚀</div>
+                <div className="text-xl">😎</div>
               </motion.div>
             </div>
           </motion.div>
@@ -94,7 +94,7 @@ export default function AboutSection() {
             ))}
 
             {/* Stats */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
@@ -109,7 +109,7 @@ export default function AboutSection() {
                 <div className="text-3xl font-bold text-purple-400">1+</div>
                 <div className="text-gray-300">Years Experience</div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
       </div>
