@@ -28,7 +28,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
+    <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0">
         {/* Gradient Background */}
@@ -116,13 +116,13 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Enhanced Name with Typewriter Effect */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="mb-6"
+          className="mb-4 sm:mb-6"
         >
           <motion.h1
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -133,7 +133,7 @@ export default function HeroSection() {
               type: "spring",
               stiffness: 100,
             }}
-            className="text-5xl md:text-8xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent relative"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold bg-gradient-to-r from-white via-blue-100 to-blue-300 bg-clip-text text-transparent relative leading-tight"
           >
             <motion.span
               animate={{
@@ -155,10 +155,10 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed px-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -182,7 +182,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-16 px-4"
         >
           <motion.div
             whileHover={{
@@ -196,7 +196,7 @@ export default function HeroSection() {
               onClick={downloadCV}
               size="lg"
               variant="default"
-              className="px-10 py-4 text-lg font-semibold relative overflow-hidden group"
+              className="px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold relative overflow-hidden group w-full sm:w-auto"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5"
@@ -204,7 +204,7 @@ export default function HeroSection() {
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 0.6 }}
               />
-              <Download className="mr-3" size={20} />
+              <Download className="mr-2 sm:mr-3" size={18} />
               <span className="relative z-10">Download CV</span>
             </Button>
           </motion.div>
@@ -221,7 +221,7 @@ export default function HeroSection() {
               onClick={scrollToContact}
               variant="secondary"
               size="lg"
-              className="px-10 py-4 text-lg font-semibold relative overflow-hidden group"
+              className="px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold relative overflow-hidden group w-full sm:w-auto"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/2"
@@ -229,7 +229,7 @@ export default function HeroSection() {
                 whileHover={{ scale: 1 }}
                 transition={{ duration: 0.4 }}
               />
-              <Send className="mr-3" size={20} />
+              <Send className="mr-2 sm:mr-3" size={18} />
               <span className="relative z-10">Get In Touch</span>
             </Button>
           </motion.div>
@@ -240,7 +240,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.4 }}
-          className="flex justify-center space-x-8"
+          className="flex justify-center space-x-4 sm:space-x-8 px-4"
         >
           {socialLinks.map((link, index) => {
             const IconComponent = iconMap[link.icon as keyof typeof iconMap];

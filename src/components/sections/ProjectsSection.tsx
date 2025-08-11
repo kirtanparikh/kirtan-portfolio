@@ -115,17 +115,17 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
 
   return (
     <Dialog open={!!project} onOpenChange={() => onClose()}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto glass-dark border-white/10">
+      <DialogContent className="max-w-[95vw] sm:max-w-4xl max-h-[90vh] overflow-y-auto glass-dark border-white/10 mx-4">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-white">
+          <DialogTitle className="text-xl sm:text-2xl font-bold text-white">
             {project.title}
           </DialogTitle>
-          <DialogDescription className="text-gray-300 mt-2">
+          <DialogDescription className="text-gray-300 mt-2 text-sm sm:text-base">
             {project.description}
           </DialogDescription>
         </DialogHeader>
 
-        <div className="mt-6 space-y-8">
+        <div className="mt-4 sm:mt-6 space-y-6 sm:space-y-8">
           {/* Project Image with overlay */}
           <div className="relative h-0 pb-[56.25%] rounded-2xl overflow-hidden glass-accent-ring">
             <Image
@@ -228,12 +228,12 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative"
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-black via-gray-900 to-black relative"
     >
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-1/3 w-48 sm:w-96 h-48 sm:h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-48 sm:w-96 h-48 sm:h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -242,20 +242,20 @@ export default function ProjectsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Featured Projects
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
             Here are some of my recent projects that showcase my skills and
             passion for creating innovative solutions.
           </p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {projectsData.map((project, index) => (
             <ProjectCard
               key={index}

@@ -19,15 +19,41 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
 
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+
     const toggleVisibility = () => {
-      if (window.scrollY > 100) {
-        setIsVisible(true);
+      const currentIsMobile = window.innerWidth < 768;
+
+      if (currentIsMobile) {
+        // On mobile, show navbar after minimal scroll
+        setIsVisible(window.scrollY > 50);
       } else {
-        setIsVisible(false);
+        // Desktop behavior
+        setIsVisible(window.scrollY > 100);
+      }
+    };
+
+    const handleResize = () => {
+      checkMobile();
+      // Close mobile menu when switching to desktop view
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+      toggleVisibility();
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false);
       }
     };
 
@@ -35,13 +61,26 @@ export default function Navbar() {
     toggleVisibility();
 
     window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const offset = isMobile ? 80 : 100; // Account for navbar height
+      const elementPosition = element.offsetTop - offset;
+
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth",
+      });
     }
     setIsMobileMenuOpen(false);
   };
@@ -54,20 +93,24 @@ export default function Navbar() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-4 left-4 right-4 z-50 glass-navbar rounded-2xl"
+          className={`fixed z-50 glass-navbar ${
+            isMobile
+              ? "top-0 left-0 right-0 mobile-navbar"
+              : "top-4 left-4 right-4 rounded-2xl"
+          }`}
         >
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-            <div className="flex justify-between items-center h-16">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-14 sm:h-16">
               {/* Logo */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="text-xl font-bold text-white"
+                className="font-bold text-white text-lg sm:text-xl truncate flex-shrink-0"
               >
                 Kirtan Parikh
               </motion.div>
 
               {/* Desktop Navigation */}
-              <div className="hidden md:flex space-x-2">
+              <div className="hidden md:flex space-x-1 lg:space-x-2">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.name}
@@ -77,7 +120,7 @@ export default function Navbar() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => scrollToSection(item.href)}
-                    className="nav-item-glass text-gray-300 hover:text-white transition-all duration-300 relative z-10"
+                    className="nav-item-glass text-gray-300 hover:text-white transition-all duration-300 relative z-10 text-sm lg:text-base"
                   >
                     {item.name}
                   </motion.button>
@@ -88,7 +131,8 @@ export default function Navbar() {
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden btn-macos-secondary p-2 text-white"
+                className="md:hidden btn-macos-secondary p-3 text-white rounded-lg flex-shrink-0"
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               >
                 {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </motion.button>
@@ -101,23 +145,25 @@ export default function Navbar() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="md:hidden border-t border-white/10 mt-4"
+                  className="md:hidden border-t border-white/10 mt-2"
                 >
-                  <div className="py-4 space-y-2">
-                    {navItems.map((item, index) => (
-                      <motion.button
-                        key={item.name}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => scrollToSection(item.href)}
-                        className="block w-full text-left nav-item-glass text-gray-300 hover:text-white transition-all duration-300"
-                      >
-                        {item.name}
-                      </motion.button>
-                    ))}
+                  <div className="py-2 max-h-[60vh] overflow-y-auto">
+                    <div className="space-y-1">
+                      {navItems.map((item, index) => (
+                        <motion.button
+                          key={item.name}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => scrollToSection(item.href)}
+                          className="block w-full text-left nav-item-glass text-gray-300 hover:text-white transition-all duration-200 py-3 px-4 rounded-lg text-base font-medium"
+                        >
+                          {item.name}
+                        </motion.button>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               )}

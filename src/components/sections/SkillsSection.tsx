@@ -59,19 +59,19 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.05, y: -5 }}
-      className="glass-card p-6 text-center group"
+      className="glass-card p-4 sm:p-6 text-center group"
     >
       <motion.div
         whileHover={{ rotate: 360 }}
         transition={{ duration: 0.5 }}
-        className="inline-flex items-center justify-center w-16 h-16 bg-blue-500/10 rounded-full mb-4 group-hover:bg-blue-500/20 transition-colors duration-300"
+        className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/10 rounded-full mb-3 sm:mb-4 group-hover:bg-blue-500/20 transition-colors duration-300"
       >
         <IconComponent
-          size={32}
-          className="text-blue-400 group-hover:text-blue-300 transition-colors duration-300"
+          size={24}
+          className="text-blue-400 group-hover:text-blue-300 transition-colors duration-300 sm:w-8 sm:h-8"
         />
       </motion.div>
-      <h3 className="text-white font-semibold group-hover:text-blue-300 transition-colors duration-300">
+      <h3 className="text-white font-semibold group-hover:text-blue-300 transition-colors duration-300 text-sm sm:text-base">
         {skill.name}
       </h3>
     </motion.div>
@@ -97,10 +97,10 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({
       viewport={{ once: true }}
       className="mb-12"
     >
-      <h3 className="text-2xl font-bold text-white mb-6 text-center">
+      <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">
         {title}
       </h3>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
         {skills.map((skill, index) => (
           <SkillCard key={skill.name} skill={skill} index={index} />
         ))}
@@ -111,26 +111,26 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-20 bg-black">
+    <section id="skills" className="py-12 sm:py-16 lg:py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Skills & Technologies
           </h2>
           <div className="w-24 h-1 bg-blue-500 mx-auto mb-6"></div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4">
             A comprehensive toolkit of modern technologies and frameworks I use
             to build scalable applications
           </p>
         </motion.div>
 
-        <div className="space-y-16">
+        <div className="space-y-12 sm:space-y-16">
           <SkillCategory
             title="Programming Languages"
             skills={skillsData.languages}
