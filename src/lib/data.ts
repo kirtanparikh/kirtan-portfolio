@@ -131,8 +131,8 @@ export const educationData = [
     degree: "Bachelor of Technology in Computer Science Engineering",
     institution: "Indian Institute of Information Technology Vadodara",
     location: "Vadodara, Gujarat, India",
-    duration: "2021 - 2025",
-    grade: "8.5 CGPA",
+    duration: "2022 - 2026",
+    grade: "8.67 CGPA",
     description: [
       "Pursuing B.Tech in Computer Science Engineering with specialization in software development, algorithms, and AI/ML.",
       "Final year project on cloud-native application development with microservices architecture.",
@@ -155,18 +155,18 @@ export const educationData = [
     ],
     icon: "GraduationCap",
   },
-  {
-    degree: "Higher Secondary Certificate (HSC)",
-    institution: "Science Stream",
-    location: "Gujarat, India",
-    duration: "2019 - 2021",
-    grade: "97.69 PR",
-    description: [
-      "Physics, Chemistry, Mathematics, and Computer Science",
-      "Strong foundation in mathematics and logical reasoning",
-    ],
-    icon: "BookOpen",
-  },
+  // {
+  //   degree: "Higher Secondary Certificate (HSC)",
+  //   institution: "Science Stream",
+  //   location: "Ahmedabad, Gujarat, India",
+  //   duration: "2022",
+  //   grade: "97.69 PR",
+  //   description: [
+  //     "Physics, Chemistry, Mathematics, and Computer Science",
+  //     "Strong foundation in mathematics and logical reasoning",
+  //   ],
+  //   icon: "BookOpen",
+  // },
 ];
 
 // --- Academic Achievements Data ---
@@ -206,7 +206,7 @@ export const coursesData = [
   {
     title: "Smart India Hackathon (SIH)",
     provider: "Government of India",
-    duration: "2023",
+    duration: "2024",
     status: "Completed",
     description:
       "National level hackathon organized by Ministry of Education, Government of India to solve real-world problems through innovative technology solutions.",
@@ -235,7 +235,7 @@ export const coursesData = [
       "Computer Vision",
       "NLP",
     ],
-    certificateUrl: "https://www.nvidia.com/en-us/training/",
+    certificateUrl: "https://learn.nvidia.com/certificates?id=",
     icon: "Brain",
   },
 ];
@@ -243,6 +243,6 @@ export const coursesData = [
 // --- Contact Data ---
 export const contactData = {
   email: "kirtan134parikh@gmail.com",
-  phone: "+91 9638525664",
+  phone: "+91 7990582376",
   location: "Ahmedabad, Gujarat, India",
 };

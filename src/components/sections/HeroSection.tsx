@@ -195,10 +195,11 @@ export default function HeroSection() {
             <Button
               onClick={downloadCV}
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 text-lg font-semibold rounded-xl shadow-lg border border-blue-500/30 backdrop-blur-sm relative overflow-hidden group"
+              variant="default"
+              className="px-10 py-4 text-lg font-semibold relative overflow-hidden group"
             >
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-600/20"
+                className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 0.6 }}
@@ -218,12 +219,12 @@ export default function HeroSection() {
           >
             <Button
               onClick={scrollToContact}
-              variant="outline"
+              variant="secondary"
               size="lg"
-              className="border-2 border-blue-500/50 text-blue-400 hover:bg-blue-600/10 hover:border-blue-400 px-10 py-4 text-lg font-semibold rounded-xl backdrop-blur-sm bg-black/20 relative overflow-hidden group"
+              className="px-10 py-4 text-lg font-semibold relative overflow-hidden group"
             >
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-blue-600/10"
+                className="absolute inset-0 bg-gradient-to-r from-white/5 to-white/2"
                 initial={{ scale: 0 }}
                 whileHover={{ scale: 1 }}
                 transition={{ duration: 0.4 }}

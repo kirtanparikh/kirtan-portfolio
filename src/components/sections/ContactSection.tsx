@@ -69,8 +69,17 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative"
+    >
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +90,7 @@ export default function ContactSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Get In Touch
           </h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             I&apos;m always interested in new opportunities and collaborations.
             Let&apos;s build something amazing together!
@@ -112,9 +121,9 @@ export default function ContactSection() {
             <div className="space-y-6">
               <motion.div
                 whileHover={{ x: 5 }}
-                className="flex items-center space-x-4 p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
+                className="flex items-center space-x-4 p-6 glass-card"
               >
-                <div className="p-3 bg-blue-500/10 rounded-lg">
+                <div className="p-3 glass-card">
                   <Mail size={24} className="text-blue-400" />
                 </div>
                 <div>
@@ -130,9 +139,9 @@ export default function ContactSection() {
 
               <motion.div
                 whileHover={{ x: 5 }}
-                className="flex items-center space-x-4 p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
+                className="flex items-center space-x-4 p-6 glass-card"
               >
-                <div className="p-3 bg-blue-500/10 rounded-lg">
+                <div className="p-3 glass-card">
                   <Phone size={24} className="text-blue-400" />
                 </div>
                 <div>
@@ -148,9 +157,9 @@ export default function ContactSection() {
 
               <motion.div
                 whileHover={{ x: 5 }}
-                className="flex items-center space-x-4 p-4 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-all duration-300"
+                className="flex items-center space-x-4 p-6 glass-card"
               >
-                <div className="p-3 bg-blue-500/10 rounded-lg">
+                <div className="p-3 glass-card">
                   <MapPin size={24} className="text-blue-400" />
                 </div>
                 <div>
@@ -179,7 +188,7 @@ export default function ContactSection() {
                       viewport={{ once: true }}
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-3 bg-gray-800/50 hover:bg-blue-600/20 rounded-lg border border-gray-700 hover:border-blue-500 transition-all duration-300"
+                      className="p-3 glass-card transition-all duration-300"
                     >
                       <IconComponent
                         size={20}
@@ -214,7 +223,7 @@ export default function ContactSection() {
                   required
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
+                  className="glass text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 border-0"
                   placeholder="Your full name"
                 />
               </div>
@@ -233,7 +242,7 @@ export default function ContactSection() {
                   required
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
+                  className="glass text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 border-0"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -252,7 +261,7 @@ export default function ContactSection() {
                   rows={6}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="bg-gray-800/50 border-gray-700 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
+                  className="glass text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 border-0 resize-none"
                   placeholder="Tell me about your project or just say hello..."
                 />
               </div>
@@ -265,7 +274,8 @@ export default function ContactSection() {
                   type="submit"
                   disabled={isSubmitting}
                   size="lg"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3"
+                  variant="default"
+                  className="w-full font-semibold py-3"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center">

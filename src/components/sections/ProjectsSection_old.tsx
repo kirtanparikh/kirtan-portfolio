@@ -208,10 +208,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section
-      id="projects"
-      className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative"
-    >
+    <section id="projects" className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -231,8 +228,7 @@ export default function ProjectsSection() {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and
-            passion for creating innovative solutions.
+            Here are some of my recent projects that showcase my skills and passion for creating innovative solutions.
           </p>
         </motion.div>
 
@@ -256,7 +252,9 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <p className="text-gray-300 mb-6">Want to see more of my work?</p>
+          <p className="text-gray-300 mb-6">
+            Want to see more of my work?
+          </p>
           <motion.a
             href="https://github.com/Kirtan134"
             target="_blank"

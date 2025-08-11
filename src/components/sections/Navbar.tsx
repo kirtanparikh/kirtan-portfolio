@@ -54,9 +54,9 @@ export default function Navbar() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800"
+          className="fixed top-4 left-4 right-4 z-50 glass-navbar rounded-2xl"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
             <div className="flex justify-between items-center h-16">
               {/* Logo */}
               <motion.div
@@ -67,7 +67,7 @@ export default function Navbar() {
               </motion.div>
 
               {/* Desktop Navigation */}
-              <div className="hidden md:flex space-x-8">
+              <div className="hidden md:flex space-x-2">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.name}
@@ -75,8 +75,9 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => scrollToSection(item.href)}
-                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200"
+                    className="nav-item-glass text-gray-300 hover:text-white transition-all duration-300 relative z-10"
                   >
                     {item.name}
                   </motion.button>
@@ -87,9 +88,9 @@ export default function Navbar() {
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden text-white"
+                className="md:hidden btn-macos-secondary p-2 text-white"
               >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </motion.button>
             </div>
 
@@ -100,7 +101,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="md:hidden border-t border-gray-800"
+                  className="md:hidden border-t border-white/10 mt-4"
                 >
                   <div className="py-4 space-y-2">
                     {navItems.map((item, index) => (
@@ -109,8 +110,10 @@ export default function Navbar() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                         onClick={() => scrollToSection(item.href)}
-                        className="block w-full text-left px-4 py-2 text-gray-300 hover:text-blue-400 hover:bg-gray-800/50 transition-colors duration-200"
+                        className="block w-full text-left nav-item-glass text-gray-300 hover:text-white transition-all duration-300"
                       >
                         {item.name}
                       </motion.button>

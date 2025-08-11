@@ -59,7 +59,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill, index }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.05, y: -5 }}
-      className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-6 text-center hover:border-blue-500/50 transition-all duration-300 group"
+      className="glass-card p-6 text-center group"
     >
       <motion.div
         whileHover={{ rotate: 360 }}

@@ -169,7 +169,7 @@ export default function EducationSection() {
         >
           <div className="grid md:grid-cols-3 gap-6">
             <div className="p-6 bg-gray-800/50 rounded-lg border border-gray-700">
-              <div className="text-3xl font-bold text-blue-400 mb-2">8.5</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">8.67</div>
               <div className="text-gray-400">Current CGPA</div>
             </div>
             <div className="p-6 bg-gray-800/50 rounded-lg border border-gray-700">
@@ -177,7 +177,7 @@ export default function EducationSection() {
               <div className="text-gray-400">Years of Study</div>
             </div>
             <div className="p-6 bg-gray-800/50 rounded-lg border border-gray-700">
-              <div className="text-3xl font-bold text-blue-400 mb-2">2025</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">2026</div>
               <div className="text-gray-400">Expected Graduation</div>
             </div>
           </div>

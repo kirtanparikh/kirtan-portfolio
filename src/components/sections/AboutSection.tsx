@@ -6,8 +6,17 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="about"
+      className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative"
+    >
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,7 +27,7 @@ export default function AboutSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {aboutData.title}
           </h2>
-          <div className="w-24 h-1 bg-blue-500 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -31,8 +40,8 @@ export default function AboutSection() {
             className="flex justify-center"
           >
             <div className="relative">
-              <div className="w-80 h-80 bg-gradient-to-br from-blue-500 to-teal-500 rounded-full p-1">
-                <div className="w-full h-full bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
+              <div className="w-80 h-80 bg-gradient-to-br from-blue-500 via-purple-500 to-teal-500 rounded-full p-1 glass-card">
+                <div className="w-full h-full bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center overflow-hidden border border-white/10">
                   {/* Profile Image */}
                   <Image
                     src="/assets/profile.jpg"
@@ -49,14 +58,14 @@ export default function AboutSection() {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-4 -right-4 w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center"
+                className="absolute -top-4 -right-4 w-16 h-16 glass-card flex items-center justify-center"
               >
                 <div className="text-2xl">⚡</div>
               </motion.div>
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-4 -left-4 w-12 h-12 bg-teal-500/20 rounded-full flex items-center justify-center"
+                className="absolute -bottom-4 -left-4 w-12 h-12 glass-card flex items-center justify-center"
               >
                 <div className="text-xl">🚀</div>
               </motion.div>
@@ -92,13 +101,13 @@ export default function AboutSection() {
               viewport={{ once: true }}
               className="grid grid-cols-2 gap-6 mt-8"
             >
-              <div className="text-center p-4 bg-gray-800/50 rounded-lg border border-gray-700">
+              <div className="text-center p-6 glass-card">
                 <div className="text-3xl font-bold text-blue-400">3+</div>
-                <div className="text-gray-400">Projects Completed</div>
+                <div className="text-gray-300">Projects Completed</div>
               </div>
-              <div className="text-center p-4 bg-gray-800/50 rounded-lg border border-gray-700">
-                <div className="text-3xl font-bold text-blue-400">1+</div>
-                <div className="text-gray-400">Years Experience</div>
+              <div className="text-center p-6 glass-card">
+                <div className="text-3xl font-bold text-purple-400">1+</div>
+                <div className="text-gray-300">Years Experience</div>
               </div>
             </motion.div>
           </motion.div>
