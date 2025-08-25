@@ -5,7 +5,7 @@
 
 // --- Social Links ---
 export const socialLinks = [
-  { name: "GitHub", url: "https://github.com/Kirtan134", icon: "Github" },
+  { name: "GitHub", url: "https://github.com/kirtanparikh", icon: "Github" },
   {
     name: "LinkedIn",
     url: "https://linkedin.com/in/kirtan-parikh",
@@ -22,7 +22,7 @@ export const socialLinks = [
 // --- Hero Section Data ---
 export const heroData = {
   name: "Kirtan Parikh",
-  tagline:
+  tagline:          
     "Full-Stack & DevOps Enthusiast | Building Scalable Systems & Cloud Infra",
   cvUrl: "/assets/cv.pdf",
 };
@@ -97,7 +97,7 @@ export const projectsData = [
     tags: ["Next.js", "MongoDB", "AWS", "Kubernetes", "Gemini AI", "CI/CD"],
     imageUrl: "/assets/truvoice.jpg",
     liveUrl: "https://truvoice.kirtanparikh.tech/",
-    githubUrl: "https://github.com/Kirtan134/TruVoice",
+    githubUrl: "https://github.com/kirtanparikh/TruVoice",
     details:
       "TruVoice supports both authenticated and unauthenticated feedback, using Gemini 2.5 Flash for intelligent content generation. The infrastructure is fully automated with Terraform and monitored with Prometheus & Grafana.",
   },
@@ -108,7 +108,7 @@ export const projectsData = [
     tags: ["Node.js", "Express.js", "Socket.io", "Leaflet.js", "EJS"],
     imageUrl: "/assets/tracksnap.jpg",
     liveUrl: "https://tracksnap.onrender.com/",
-    githubUrl: "https://github.com/Kirtan134/TrackSnap",
+    githubUrl: "https://github.com/kirtanparikh/TrackSnap",
     details:
       "Features a stateless architecture ensuring no location data is stored. Optimized WebSocket connections provide sub-100ms latency for a seamless cross-device experience.",
   },
@@ -119,7 +119,7 @@ export const projectsData = [
     tags: ["Next.js", "Tailwind CSS", "Cloudinary", "Vercel"],
     imageUrl: "/assets/homelandcakes.jpg",
     liveUrl: "https://homelandcakes.vercel.app/",
-    githubUrl: "https://github.com/Kirtan134/cake-shop",
+    githubUrl: "https://github.com/kirtanparikh/cake-shop",
     details:
       "A fully responsive gallery showcasing over 150 custom cake images. Built with Next.js for performance and deployed on Vercel.",
   },
