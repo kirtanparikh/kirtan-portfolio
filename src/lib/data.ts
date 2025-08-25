@@ -24,7 +24,7 @@ export const heroData = {
   name: "Kirtan Parikh",
   tagline:          
     "Full-Stack & DevOps Enthusiast | Building Scalable Systems & Cloud Infra",
-  cvUrl: "/assets/cv.pdf",
+  cvUrl: "/assets/CV.pdf",
 };
 
 // --- About Section Data ---
