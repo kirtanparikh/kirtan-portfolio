@@ -13,7 +13,7 @@ export const socialLinks = [
   },
   {
     name: "LeetCode",
-    url: "https://leetcode.com/kirtan134parikh",
+    url: "https://leetcode.com/kirtanparikh",
     icon: "Code",
   },
   { name: "X", url: "https://x.com/kirtan134", icon: "Twitter" },
