@@ -60,7 +60,7 @@ An innovative platform for anonymous feedback enhanced with AI-generated constru
 
 - **Tech Stack**: Next.js, MongoDB, AWS, Kubernetes, Gemini AI, CI/CD
 - **Live Demo**: [truvoice.kirtanparikh.tech](https://truvoice.kirtanparikh.tech/)
-- **Repository**: [GitHub](https://github.com/Kirtan134/TruVoice)
+- **Repository**: [GitHub](https://github.com/kirtanparikh/TruVoice)
 
 ### TrackSnap
 
@@ -68,7 +68,7 @@ A comprehensive fitness and nutrition tracking application with social features.
 
 - **Tech Stack**: Next.js, Node.js, PostgreSQL, AWS, Socket.IO
 - **Live Demo**: [tracksnap.kirtanparikh.tech](https://tracksnap.onrender.com/)
-- **Repository**: [GitHub](https://github.com/Kirtan134/TrackSnap)
+- **Repository**: [GitHub](https://github.com/kirtanparikh/TrackSnap)
 
 ### Homeland Cakes
 
@@ -118,7 +118,7 @@ A professional e-commerce website for a local bakery with modern design and func
 1. Clone the repository
 
 ```bash
-git clone https://github.com/Kirtan134/kirtan-portfolio.git
+git clone https://github.com/kirtanparikh/kirtan-portfolio.git
 cd kirtan-portfolio
 ```
 
@@ -172,7 +172,7 @@ src/
 
 - **Email**: kirtan134parikh@gmail.com
 - **LinkedIn**: [linkedin.com/in/kirtan-parikh](https://linkedin.com/in/kirtan-parikh)
-- **GitHub**: [github.com/Kirtan134](https://github.com/Kirtan134)
+- **GitHub**: [github.com/kirtanparikh](https://github.com/kirtanparikh)
 - **Portfolio**: [kirtanparikh.tech](https://kirtanparikh.tech)
 
 ## License
