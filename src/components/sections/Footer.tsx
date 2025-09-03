@@ -124,11 +124,6 @@ export default function Footer() {
         >
           <p className="text-gray-400 text-xs sm:text-sm flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-0">
             <span>© {currentYear} Kirtan Parikh.</span>
-            <span className="flex items-center">
-              Built with
-              <Heart size={14} className="sm:w-4 sm:h-4 text-red-500 mx-1" />
-              using Next.js & Tailwind CSS
-            </span>
           </p>
         </motion.div>
       </div>
