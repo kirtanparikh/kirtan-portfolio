@@ -54,21 +54,7 @@ export default function AboutSection() {
                   />
                 </div>
               </div>
-              {/* Floating elements */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-4 -right-4 w-16 h-16 glass-card flex items-center justify-center"
-              >
-                <div className="text-2xl">⚡</div>
-              </motion.div>
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-4 -left-4 w-12 h-12 glass-card flex items-center justify-center"
-              >
-                <div className="text-xl">😎</div>
-              </motion.div>
+              {/* Floating elements removed per request */}
             </div>
           </motion.div>
 
