@@ -132,7 +132,7 @@ export const educationData = [
     institution: "Indian Institute of Information Technology Vadodara",
     location: "Vadodara, Gujarat, India",
     duration: "2022 - 2026",
-    grade: "8.67 CGPA",
+    grade: "8.67 CPI",
     description: [
       "Pursuing B.Tech in Computer Science Engineering with specialization in software development, algorithms, and AI/ML.",
       "Final year project on cloud-native application development with microservices architecture.",
