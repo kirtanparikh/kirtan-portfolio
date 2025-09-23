@@ -130,7 +130,7 @@ export const educationData = [
   {
     degree: "Bachelor of Technology in Computer Science Engineering",
     institution: "Indian Institute of Information Technology Vadodara",
-    location: "Vadodara, Gujarat, India",
+    location: "Gujarat, India",
     duration: "2022 - 2026",
     grade: "8.67 CPI",
     description: [
